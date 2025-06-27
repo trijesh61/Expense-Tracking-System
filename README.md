@@ -45,17 +45,17 @@ A simple and interactive expense management system built with **Streamlit** (fro
 ## 📸 Screenshots
 
 ### 🔧 Add or Update Expenses
-<img src="assets/Screenshot-2025-06-26-220954.png" alt="Add or Update" width="600"/>
+<img src="assets/Screenshot-2025-06-26-220954.png.png" alt="Add or Update" width="600"/>
 
 ---
 
 ### 📊 Analytics by Category (with Date Filter)
-<img src="assets/Screenshot-2025-06-26-221057.png" alt="Analytics by Category" width="600"/>
+<img src="assets/Screenshot-2025-06-26-221057.png.png" alt="Analytics by Category" width="600"/>
 
 ---
 
 ### 📅 Monthly Expense Overview
-<img src="assets/Screenshot-2025-06-26-221115.png" alt="Monthly Overview" width="600"/>
+<img src="assets/Screenshot-2025-06-26-221115.png.png" alt="Monthly Overview" width="600"/>
 
 ---
 
