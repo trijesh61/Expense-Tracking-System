@@ -1,33 +1,86 @@
-# Expense Management System
+# 💰 Expense Management System
 
-This project is an expense management system that consists of a Streamlit frontend application and a FastAPI backend server.
+A simple and interactive expense management system built with **Streamlit** (frontend) and **FastAPI** (backend).
 
+---
 
-## Project Structure
+## 📁 Project Structure
 
-- **frontend/**: Contains the Streamlit application code.
-- **backend/**: Contains the FastAPI backend server code.
-- **tests/**: Contains the test cases for both frontend and backend.
-- **requirements.txt**: Lists the required Python packages.
-- **README.md**: Provides an overview and instructions for the project.
+```
+.
+├── frontend/          # Streamlit frontend app
+├── backend/           # FastAPI backend server
+├── tests/             # Unit tests
+├── requirements.txt   # Dependencies
+└── README.md          # Project documentation
+```
 
+---
 
-## Setup Instructions
+## 🚀 Setup Instructions
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/expense-management-system.git
+   git clone https://github.com/trijesh61/expense-management-system.git
    cd expense-management-system
    ```
-1. **Install dependencies:**:   
-   ```commandline
-    pip install -r requirements.txt
+
+2. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
    ```
-1. **Run the FastAPI server:**:   
-   ```commandline
-    uvicorn server.server:app --reload
+
+3. **Run the FastAPI server**:
+   ```bash
+   uvicorn backend.server:app --reload
    ```
-1. **Run the Streamlit app:**:   
-   ```commandline
-    streamlit run frontend/app.py
+
+4. **Run the Streamlit app**:
+   ```bash
+   streamlit run frontend/app.py
    ```
+
+---
+
+## 📸 Screenshots
+
+### 🔧 Add or Update Expenses
+<img src="assets/Screenshot-2025-06-26-220954.png" alt="Add or Update" width="600"/>
+
+---
+
+### 📊 Analytics by Category (with Date Filter)
+<img src="assets/Screenshot-2025-06-26-221057.png" alt="Analytics by Category" width="600"/>
+
+---
+
+### 📅 Monthly Expense Overview
+<img src="assets/Screenshot-2025-06-26-221115.png" alt="Monthly Overview" width="600"/>
+
+---
+
+## 📌 Features
+
+- Add & update expenses with category and notes
+- Visual insights by **category** and **month**
+- Clean FastAPI backend with RESTful endpoints
+- User-friendly Streamlit interface
+- Exportable analytics (charts & data)
+- Modular and easy to extend
+
+---
+
+## 🧪 Testing
+
+To run all tests using `pytest`:
+```bash
+pytest tests/
+```
+
+---
+
+## 📬 Contact
+
+For issues, suggestions, or contributions, feel free to open an [issue](https://github.com/trijesh61/expense-management-system/issues).
+
+---
