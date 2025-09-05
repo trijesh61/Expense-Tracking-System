@@ -1,26 +1,54 @@
+import os
 import mysql.connector
 from contextlib import contextmanager
 from logging_setup import setup_logger
-
+import ssl
 
 logger = setup_logger('db_helper')
 
+def get_db_connection():
+    """Create and return a database connection using environment variables."""
+    try:
+        ssl_config = {}
+        if os.getenv('DB_SSL_CA'):
+            ssl_config = {
+                'ssl_ca': os.getenv('DB_SSL_CA'),
+                'ssl_verify_cert': True
+            }
+            
+        connection = mysql.connector.connect(
+            host=os.getenv('DB_HOST', 'localhost'),
+            user=os.getenv('DB_USER', 'root'),
+            password=os.getenv('DB_PASSWORD', ''),
+            database=os.getenv('DB_NAME', 'expense_manager'),
+            port=int(os.getenv('DB_PORT', '3306')),
+            **ssl_config
+        )
+        return connection
+    except Exception as e:
+        logger.error(f"Error connecting to database: {str(e)}")
+        raise
 
 @contextmanager
 def get_db_cursor(commit=False):
-    connection = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="1234",
-        database="expense_manager"
-    )
-
-    cursor = connection.cursor(dictionary=True)
-    yield cursor
-    if commit:
-        connection.commit()
-    cursor.close()
-    connection.close()
+    connection = None
+    cursor = None
+    try:
+        connection = get_db_connection()
+        cursor = connection.cursor(dictionary=True)
+        yield cursor
+        if commit:
+            connection.commit()
+    except Exception as e:
+        if connection and connection.is_connected():
+            connection.rollback()
+        logger.error(f"Database error: {str(e)}")
+        raise
+    finally:
+        if cursor:
+            cursor.close()
+        if connection and connection.is_connected():
+            connection.close()
 
 
 def fetch_expenses_for_date(expense_date):
